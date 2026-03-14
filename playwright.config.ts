@@ -3,6 +3,7 @@
 import { PlaywrightTestConfig } from "@playwright/test";
 
 import { getEnvironment } from "./config/environments";
+import process from "process";
 
 const config: PlaywrightTestConfig = {
   // Directory where test files are located
@@ -25,7 +26,7 @@ const config: PlaywrightTestConfig = {
     extraHTTPHeaders: {
       "Content-Type": "application/json",
 
-      "x-api-key": "api-keys", //This is API key which we got from https://reqres.in/signup
+      "x-api-key": `${process.env.API_KEY}`, //This is API key which we got from https://reqres.in/signup
 
       // 'Authorization': `Bearer ${process.env.API_TOKEN}`, // Example for dynamic token
     },
